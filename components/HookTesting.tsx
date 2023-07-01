@@ -1,27 +1,30 @@
 "use client";
 
-import { useLocalStorage } from "@/hook/useLocalStorage";
-import { debounce } from "@/utils/debouncing";
 import { useState } from "react";
+import LocalStorageHook from "./LocalStorageHook";
 
 export const HookTesting = () => {
-  const [data, setData, removeData] = useLocalStorage("test", null);
-  const [value, setValue] = useState("");
+  const [selectedHook, setSelectedHook] = useState("");
+  const hooks = ["useLocalStorage"];
 
-  const handleChange = debounce((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;
-    setValue(value || "");
-  });
+    setSelectedHook(value);
+  };
 
   return (
     <div className="t-flex t-justify-center t-items-center t-flex-col">
-      <h3>useLocalStorage</h3>
-      <div className="t-flex t-gap-2 t-items-center t-justify-center t-flex-col">
-        <textarea onChange={handleChange} rows={5} cols={20} autoFocus />
-        <button onClick={() => setData(value)}>Set Local Storage</button>
-        <button onClick={removeData}>Remove Local Storage</button>
-        <div>{data}</div>
-      </div>
+      <select onChange={handleChange}>
+        <option>Select hook</option>
+        {hooks.map((el) => {
+          return (
+            <option value={el} key={el}>
+              {el}
+            </option>
+          );
+        })}
+      </select>
+      {selectedHook === "useLocalStorage" && <LocalStorageHook />}
     </div>
   );
 };
