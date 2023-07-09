@@ -5,6 +5,7 @@ import { useUpdateQuery } from "@/hook/useQuery";
 import { useSearchParams } from "next/navigation";
 import LocalStorageHook from "./LocalStorageHook";
 import UpdateQueryHook from "./QueryHook";
+import { UseBatteryHook } from "./UseBatteryHook";
 import { USeBrowserHook } from "./UseBrowserHook";
 import { UseDeviceHook } from "./UseDeviceHook";
 import { UseStateHook } from "./UseStateHook";
@@ -24,6 +25,8 @@ const HookRender = () => {
       return <UseDeviceHook />;
     case "useBrowser":
       return <USeBrowserHook />;
+    case "useBattery":
+      return <UseBatteryHook />;
     default:
       return <p>Please select a hook</p>;
   }
@@ -39,6 +42,7 @@ export const HookTesting = () => {
     "useUpdateQuery",
     "useDevice",
     "useBrowser",
+    "useBattery",
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
