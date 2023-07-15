@@ -9,6 +9,7 @@ import { UseBatteryHook } from "./UseBatteryHook";
 import { USeBrowserHook } from "./UseBrowserHook";
 import { UseDeviceHook } from "./UseDeviceHook";
 import { UseStateHook } from "./UseStateHook";
+import UseWindowSizeHook from "./UseWindowSizeHook";
 
 const HookRender = () => {
   const searchParams = useSearchParams();
@@ -27,6 +28,8 @@ const HookRender = () => {
       return <USeBrowserHook />;
     case "useBattery":
       return <UseBatteryHook />;
+    case "useWindowSize":
+      return <UseWindowSizeHook />;
     default:
       return <p>Please select a hook</p>;
   }
@@ -43,6 +46,7 @@ export const HookTesting = () => {
     "useDevice",
     "useBrowser",
     "useBattery",
+    "useWindowSize",
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
