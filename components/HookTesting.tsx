@@ -50,7 +50,6 @@ export const HookTesting = () => {
     "useBrowser",
     "useBattery",
     "useWindowSize",
-    "useGeolocation",
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
