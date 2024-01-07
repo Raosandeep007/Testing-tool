@@ -10,6 +10,7 @@ import { UseStateHook } from "@/components/UseStateHook";
 import UseWindowSizeHook from "@/components/UseWindowSizeHook";
 import { usePageTitle } from "@/hook/usePageTitle";
 import { useUpdateQuery } from "@/hook/useQuery";
+import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 
 const HookRender = () => {
@@ -61,8 +62,38 @@ const HookTesting = () => {
     }
   };
 
+  const View = () => {
+    return (
+      <motion.div
+        className="t-flex t-justify-center t-items-center t-flex-col"
+        transition={{
+          type: "spring",
+          mass: 1,
+          damping: 30,
+          stiffness: 200,
+        }}
+      >
+        <h3>{selectedHook}</h3>
+        <HookRender />
+      </motion.div>
+    );
+  };
+
   return (
-    <div className="t-flex t-justify-center t-items-center t-flex-col t-w-full t-h-screen">
+    <motion.div
+      className="t-flex t-justify-center t-items-center t-flex-col t-w-full t-h-screen"
+      layout
+      initial={{ y: "-1000px" }}
+      animate={{
+        y: 0,
+      }}
+      transition={{
+        type: "spring",
+        mass: 1,
+        damping: 30,
+        stiffness: 200,
+      }}
+    >
       <select onChange={handleChange} defaultValue={selectedHook}>
         <option value="-">Select hook</option>
         {hooks.map((el) => {
@@ -73,11 +104,8 @@ const HookTesting = () => {
           );
         })}
       </select>
-      <div className="t-flex t-justify-center t-items-center t-flex-col">
-        <h3>{selectedHook}</h3>
-        <HookRender />
-      </div>
-    </div>
+      <View />
+    </motion.div>
   );
 };
 

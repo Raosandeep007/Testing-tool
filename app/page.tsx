@@ -7,11 +7,23 @@ const Home = () => {
   usePageTitle("Devsense");
 
   return (
-    <main className="t-flex t-h-screen t-flex-col t-items-center t-justify-center">
-      <AnimatePresence>
-        <motion.h2 layout>Welcome to Devsense</motion.h2>
+    <AnimatePresence mode="wait">
+      <motion.main
+        layout
+        initial={{ y: "-1000px" }}
+        animate={{
+          y: 0,
+        }}
+        transition={{
+          type: "spring",
+          mass: 1,
+          damping: 30,
+          stiffness: 200,
+        }}
+        className="t-flex t-h-screen t-flex-col t-items-center t-justify-center t-w-full"
+      >
+        <motion.h2>Welcome to Devsense</motion.h2>
         <motion.div
-          layout
           // style={{
           //   transformStyle: "preserve-3d", // Preserve 3D transformations
           //   perspective: "2000px", // Set perspective for the 3D effect
@@ -36,12 +48,12 @@ const Home = () => {
         </motion.div>
 
         <h4>by Rao Sandeep</h4>
-        <div className="t-flex t-gap-6 t-text-white">
+        <div className="t-flex t-gap-6">
           <Link href="/custom-hook">Custom hooks</Link>
           <Link href="/spot-light">Spot light</Link>
         </div>
-      </AnimatePresence>
-    </main>
+      </motion.main>
+    </AnimatePresence>
   );
 };
 

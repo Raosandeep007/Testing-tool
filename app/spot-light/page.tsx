@@ -13,9 +13,17 @@ const SpotLight = () => {
 
   const handleMouseMove = ({ currentTarget, clientX, clientY }: MouseEvent) => {
     let { left, top } = currentTarget.getBoundingClientRect();
+    // console.log("{ left, top }:", { left, top });
 
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
+  };
+
+  const handleTouchMove = (e: any) => {
+    // console.log("e:", e);
+    // let { left, top } = currentTarget.getBoundingClientRect();
+    // mouseX.set(clientX - left);
+    // mouseY.set(clientY - top);
   };
 
   const handleMouseLeave = () => {
@@ -34,11 +42,22 @@ const SpotLight = () => {
   };
 
   return (
-    <div className="t-text-white t-flex t-gap-4">
-      <div className="t-text-white t-flex t-gap-4 t-flex-col">
-        <label className="t-text-white" htmlFor="size">
-          Spot size
-        </label>
+    <motion.div
+      className="t-flex t-gap-4 t-flex-col sm:t-flex-row"
+      layout
+      initial={{ y: "-1000px" }}
+      animate={{
+        y: 0,
+      }}
+      transition={{
+        type: "spring",
+        mass: 1,
+        damping: 30,
+        stiffness: 200,
+      }}
+    >
+      <div className="t-flex t-gap-4 t-h-max sm:t-flex-col t-flex-row">
+        <label htmlFor="size">Spot size</label>
         <input
           type="number"
           onChange={onSizeChange}
@@ -46,9 +65,7 @@ const SpotLight = () => {
           defaultValue={spotSize.get()}
         />
 
-        <label className="t-text-white" htmlFor="color">
-          Spot color
-        </label>
+        <label htmlFor="color">Spot color</label>
         <input type="color" onChange={onColorChange} value={color} />
       </div>
       <div className="t-bg-black t-h-full t-text-black t-rounded-lg">
@@ -65,6 +82,7 @@ const SpotLight = () => {
           }}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          onTouchMove={handleTouchMove}
         >
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et
@@ -215,7 +233,7 @@ const SpotLight = () => {
           </p>
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
