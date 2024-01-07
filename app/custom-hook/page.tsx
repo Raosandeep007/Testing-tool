@@ -1,16 +1,16 @@
 "use client";
 
+import LocalStorageHook from "@/components/LocalStorageHook";
+import UpdateQueryHook from "@/components/QueryHook";
+import { UseBatteryHook } from "@/components/UseBatteryHook";
+import { USeBrowserHook } from "@/components/UseBrowserHook";
+import { UseDeviceHook } from "@/components/UseDeviceHook";
+import { UseGeolocationHook } from "@/components/UseGeolocationHook";
+import { UseStateHook } from "@/components/UseStateHook";
+import UseWindowSizeHook from "@/components/UseWindowSizeHook";
 import { usePageTitle } from "@/hook/usePageTitle";
 import { useUpdateQuery } from "@/hook/useQuery";
 import { useSearchParams } from "next/navigation";
-import LocalStorageHook from "./LocalStorageHook";
-import UpdateQueryHook from "./QueryHook";
-import { UseBatteryHook } from "./UseBatteryHook";
-import { USeBrowserHook } from "./UseBrowserHook";
-import { UseDeviceHook } from "./UseDeviceHook";
-import { UseGeolocationHook } from "./UseGeolocationHook";
-import { UseStateHook } from "./UseStateHook";
-import UseWindowSizeHook from "./UseWindowSizeHook";
 
 const HookRender = () => {
   const searchParams = useSearchParams();
@@ -38,11 +38,11 @@ const HookRender = () => {
   }
 };
 
-export const HookTesting = () => {
+const HookTesting = () => {
   const { update } = useUpdateQuery();
   const searchParams = useSearchParams();
   const selectedHook = searchParams.get("hook") || "";
-  usePageTitle(selectedHook);
+  usePageTitle(selectedHook || "Custom hooks");
   const hooks = [
     "useLocalStorage",
     "useUpdateQuery",
@@ -62,7 +62,7 @@ export const HookTesting = () => {
   };
 
   return (
-    <div className="t-flex t-justify-center t-items-center t-flex-col">
+    <div className="t-flex t-justify-center t-items-center t-flex-col t-w-full t-h-screen">
       <select onChange={handleChange} defaultValue={selectedHook}>
         <option value="-">Select hook</option>
         {hooks.map((el) => {
@@ -80,3 +80,5 @@ export const HookTesting = () => {
     </div>
   );
 };
+
+export default HookTesting;
