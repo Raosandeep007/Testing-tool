@@ -80,20 +80,7 @@ const HookTesting = () => {
   };
 
   return (
-    <motion.div
-      className="t-flex t-justify-center t-items-center t-flex-col t-w-full t-h-screen"
-      layout
-      initial={{ y: "-1000px" }}
-      animate={{
-        y: 0,
-      }}
-      transition={{
-        type: "spring",
-        mass: 1,
-        damping: 30,
-        stiffness: 200,
-      }}
-    >
+    <motion.div className="t-flex t-justify-center t-items-center t-flex-col t-w-full t-h-screen">
       <select onChange={handleChange} defaultValue={selectedHook}>
         <option value="-">Select hook</option>
         {hooks.map((el) => {

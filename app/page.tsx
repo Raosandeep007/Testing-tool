@@ -51,6 +51,7 @@ const Home = () => {
         <div className="t-flex t-gap-6">
           <Link href="/custom-hook">Custom hooks</Link>
           <Link href="/spot-light">Spot light</Link>
+          <Link href="/web-worker">Web worker</Link>
         </div>
       </motion.main>
     </AnimatePresence>

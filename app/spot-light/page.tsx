@@ -45,7 +45,7 @@ const SpotLight = () => {
     <motion.div
       className="t-flex t-gap-4 t-flex-col sm:t-flex-row"
       layout
-      initial={{ y: "-1000px" }}
+      initial={{ y: 200 }}
       animate={{
         y: 0,
       }}
