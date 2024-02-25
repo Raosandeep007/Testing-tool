@@ -6,6 +6,7 @@ import { UseBatteryHook } from "@/components/UseBatteryHook";
 import { USeBrowserHook } from "@/components/UseBrowserHook";
 import { UseDeviceHook } from "@/components/UseDeviceHook";
 import { UseGeolocationHook } from "@/components/UseGeolocationHook";
+import { UseKeyPressHook } from "@/components/UseKeyPressHook";
 import { UseStateHook } from "@/components/UseStateHook";
 import UseWindowSizeHook from "@/components/UseWindowSizeHook";
 import { usePageTitle } from "@/hook/usePageTitle";
@@ -34,6 +35,8 @@ const HookRender = () => {
       return <UseWindowSizeHook />;
     case "useGeolocation":
       return <UseGeolocationHook />;
+    case "useKeyPress":
+      return <UseKeyPressHook />;
     default:
       return <p>Please select a hook</p>;
   }
@@ -51,6 +54,7 @@ const HookTesting = () => {
     "useBrowser",
     "useBattery",
     "useWindowSize",
+    "useKeyPress",
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
