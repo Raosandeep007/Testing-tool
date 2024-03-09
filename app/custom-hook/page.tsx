@@ -9,10 +9,10 @@ import { UseGeolocationHook } from "@/components/UseGeolocationHook";
 import { UseKeyPressHook } from "@/components/UseKeyPressHook";
 import { UseStateHook } from "@/components/UseStateHook";
 import UseWindowSizeHook from "@/components/UseWindowSizeHook";
-import { usePageTitle } from "@/hook/usePageTitle";
 import { useUpdateQuery } from "@/hook/useQuery";
 import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
+import { usePageTitle } from "use-custom-hook-react";
 
 const HookRender = () => {
   const searchParams = useSearchParams();

@@ -1,4 +1,4 @@
-import { useDevice } from "@/hook/useDevice";
+import { useDevice } from "use-custom-hook-react";
 
 export const UseDeviceHook = () => {
   const device = useDevice();

@@ -1,7 +1,7 @@
 "use client";
-import { usePageTitle } from "@/hook/usePageTitle";
 import { User } from "@/model/randomData";
 import { useEffect, useState } from "react";
+import { usePageTitle } from "use-custom-hook-react";
 
 const fetchData = async () => {
   const response = await fetch(

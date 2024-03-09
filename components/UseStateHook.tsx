@@ -1,4 +1,4 @@
-import { useCustomState } from "@/hook/useCustomState";
+import { useCustomState } from "use-custom-hook-react";
 
 export const UseStateHook = () => {
   const [state, setState] = useCustomState(0);

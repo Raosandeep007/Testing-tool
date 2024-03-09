@@ -1,4 +1,4 @@
-import { useBattery } from "@/hook/useBattery";
+import { useBattery } from "use-custom-hook-react";
 
 export const UseBatteryHook = () => {
   const { level, charging, chargingTime, dischargingTime } = useBattery();

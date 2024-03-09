@@ -1,4 +1,4 @@
-import { useBrowser } from "@/hook/useBrowser";
+import { useBrowser } from "use-custom-hook-react";
 
 export const USeBrowserHook = () => {
   const browser = useBrowser();

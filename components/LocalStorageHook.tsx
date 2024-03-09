@@ -1,8 +1,8 @@
 "use client";
 
-import { useLocalStorage } from "@/hook/useLocalStorage";
 import { debounce } from "@/utils/debouncing";
 import { useState } from "react";
+import { useLocalStorage } from "use-custom-hook-react";
 
 const LocalStorageHook = () => {
   const [data, setData, removeData] = useLocalStorage("test", null);

@@ -1,8 +1,8 @@
 "use client";
 
-import { usePageTitle } from "@/hook/usePageTitle";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { ChangeEvent, MouseEvent, useState } from "react";
+import { usePageTitle } from "use-custom-hook-react";
 
 const SpotLight = () => {
   usePageTitle("Spot Light");

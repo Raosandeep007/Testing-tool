@@ -1,7 +1,7 @@
 "use client";
 import { Link } from "@/components/Link";
-import { usePageTitle } from "@/hook/usePageTitle";
 import { AnimatePresence, motion } from "framer-motion";
+import { usePageTitle } from "use-custom-hook-react";
 
 const Home = () => {
   usePageTitle("Devsense");

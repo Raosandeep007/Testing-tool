@@ -1,8 +1,7 @@
 "use client";
-import { useKeyPress } from "@/hook/useKeyPress";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useDevice } from "@/hook/useDevice";
+import { useDevice, useKeyPress } from "use-custom-hook-react";
 
 export const UseKeyPressHook = () => {
   const device = useDevice();
