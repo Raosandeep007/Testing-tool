@@ -40,6 +40,12 @@ export default function RootLayout({
             >
               Web worker
             </Link>
+            <Link
+              href="/react-dnd"
+              className="t-text-white t-text-lg t-no-underline"
+            >
+              React-dnd
+            </Link>
           </div>
         </nav>
         {children}
